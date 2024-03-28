@@ -31,7 +31,7 @@ class CityRepository{
     async UpdateCity(cityId, data){
         try {
             const city = await City.update(data, {
-                Where:{
+                where:{
                     id: cityId
                 }
             });
@@ -41,7 +41,7 @@ class CityRepository{
         }
     };
 
-    async getCity(){
+    async getCity(cityId){
         try {
             const city = await City.findByPk(cityId);
             return city;

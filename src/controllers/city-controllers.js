@@ -2,6 +2,7 @@ const { CityService } = require('../services/index');
 
 const cityService = new CityService();
 
+//POST -> /city
 const create = async (req, res) => {
     try {
         const city = await cityService.createCity(req.body);
@@ -11,7 +12,6 @@ const create = async (req, res) => {
             message: 'Successfully created a city',
             err: {}
         });
-
     } catch (error) {
         console.log(error);
         return res.status(500).json({
@@ -84,4 +84,11 @@ const get = async (req, res) => {
             err: error
         })
     }
+}
+
+module.exports = {
+    create,
+    destroy,
+    update,
+    get
 }
