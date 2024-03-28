@@ -5,7 +5,8 @@ const cityService = new CityService();
 //POST -> /city
 const create = async (req, res) => {
     try {
-        const city = await cityService.createCity(req.body);
+        const { name } = req.body; // Ensure that 'name' is properly extracted from the request body
+        const city = await cityService.createCity({ name }); // Pass 'name' attribute to createCity method
         return res.status(201).json({
             data: city,
             success: true,
@@ -88,7 +89,7 @@ const get = async (req, res) => {
 
 const getAll = async (req, res) => {
     try {
-        const cities = await cityService.getAllCity();
+        const cities = await cityService.getAllCity(req.query);
         return res.status(200).json({
             data: cities,
             success: true,
