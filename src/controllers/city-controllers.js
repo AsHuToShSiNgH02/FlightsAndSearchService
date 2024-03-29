@@ -2,6 +2,28 @@ const { CityService } = require('../services/index');
 
 const cityService = new CityService();
 
+//POST -> /cities
+const bulkCreate = async (req, res) => {
+    try {
+        const citiesToAdd = req.body;
+        const cities = await cityService.createCities(citiesToAdd);
+        return res.status(201).json({
+            data: cities,
+            success: true,
+            message: 'Successfully created all cities',
+            err: {}
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            data:{},
+            success: false,
+            message:'Not able to create a city',
+            err: error
+        })
+    }
+}
+
 //POST -> /city
 const create = async (req, res) => {
     try {
@@ -112,5 +134,6 @@ module.exports = {
     destroy,
     update,
     get,
-    getAll
+    getAll,
+    bulkCreate
 }

@@ -24,7 +24,7 @@ module.exports = {
           key: 'id',
           as: 'cityid'
         },
-        allowNull: false
+        allowNull: true
       },
       createdAt: {
         allowNull: false,

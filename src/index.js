@@ -6,8 +6,6 @@ const ApiRoutes = require('./routes/index');
 
 const db = require('./models/index');
 
-const {City, Airport} = require('./models/index');
-
 const SetupAndStartServer = async () => {
     //create the express object
     const app = express();
@@ -22,9 +20,6 @@ const SetupAndStartServer = async () => {
         if(process.env.SYNC_DB){
             db.sequelize.sync({alter: true});
         }
-         
-        
-        
     }); 
 }
 

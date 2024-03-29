@@ -5,6 +5,16 @@ class CityService{
     constructor(){
         this.cityrepository = new CityRepository();
     }
+    
+    async createCities(citiesToAdd) {
+        try {
+            const cities = await this.cityrepository.CreateCities(citiesToAdd);
+            return cities;
+        } catch (error) {
+            console.log("Something went wrong in the repository layer");
+            throw(error);
+        }
+    }
 
     async createCity(data) {
         try {
