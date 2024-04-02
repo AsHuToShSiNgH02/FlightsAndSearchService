@@ -20,7 +20,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
-        name: 'Mysuru Airport',
+        name: 'Mysuru Airport', 
         cityId: 20,
         createdAt: new Date(),
         updatedAt: new Date()
